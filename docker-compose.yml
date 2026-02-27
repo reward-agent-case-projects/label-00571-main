@@ -1,0 +1,32 @@
+services:
+  # Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: dqsm-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: dqsm
+      MYSQL_USER: dqsm_user
+      MYSQL_PASSWORD: Sjy092150+
+      MYSQL_ROOT_PASSWORD: RootPassword123!
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: dqsm-backend
+    restart: always
+    ports:
+      - "9999:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=server=mysql;database=dqsm;user=dqsm_user;password=Sjy092150+
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:

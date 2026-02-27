@@ -1,0 +1,32 @@
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userprefs
+*.launchSettings.json
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+
+# Temporary Scripts (Optional, if you want to ignore the helper scripts)
+# force_pull.sh
+# manual_pull.sh
+# pull_mirror.sh
+# setup_proxy.sh
